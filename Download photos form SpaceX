@@ -34,6 +34,3 @@ def main():
     
 if __name__ == '__main__':
     main()
-    
-#6243adcaaf52800c6e919254 - launch id
-#61fc0203e0dc5662b76489a8  - launch id
