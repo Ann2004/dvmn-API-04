@@ -16,4 +16,8 @@ def send_photo_to_chat(file_path=None):
         file_paths = [os.path.join(directory, filename) for filename in os.listdir(directory)]
         file_path = random.choice(file_paths)
            
-    bot.send_document(chat_id=chat_id, document=open(file_path, 'rb'))   
+    bot.send_document(chat_id=chat_id, document=open(file_path, 'rb')) 
+
+    
+if __name__ == "__main__":
+    send_photo_to_chat()
