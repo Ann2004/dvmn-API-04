@@ -1,6 +1,7 @@
 import requests
 from pathlib import Path
 import argparse
+import get_file_extension
 
 
 def fetch_spacex_last_launch(url):
@@ -12,7 +13,9 @@ def fetch_spacex_last_launch(url):
         image_response = requests.get(image_url)
         image_response.raise_for_status()
         
-        with open(f'images/spacex{index}.jpg', 'wb') as file:
+        extension = get_file_extension.get_file_extension(image_url['url'])
+        
+        with open(f'images/spacex{index}{extension}', 'wb') as file:
             file.write(image_response.content)
         
 
@@ -34,3 +37,6 @@ def main():
     
 if __name__ == '__main__':
     main()
+    
+#6243adcaaf52800c6e919254 - launch id
+#61fc0203e0dc5662b76489a8  - launch id
