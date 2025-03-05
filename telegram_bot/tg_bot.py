@@ -1,23 +1,19 @@
 import telegram
 import os
-from dotenv import load_dotenv
 import random
+import logging
 
 
-def send_photo_to_chat(file_path=None):
-    load_dotenv()
-    tg_token = os.environ['TG_TOKEN']
+def send_photo_to_chat(tg_token, chat_id, file_path=None):
     bot = telegram.Bot(token=tg_token)
     
-    chat_id = os.environ['TG_CHAT_ID']
-    
-    if file_path is None:
+    if not file_path:
         directory = os.path.join('images')
         file_paths = [os.path.join(directory, filename) for filename in os.listdir(directory)]
         file_path = random.choice(file_paths)
-           
-    bot.send_document(chat_id=chat_id, document=open(file_path, 'rb')) 
-
     
-if __name__ == "__main__":
-    send_photo_to_chat()
+    logging.basicConfig(level=logging.INFO)
+    logging.info(file_path)
+    
+    with open(file_path, 'rb') as file:
+        bot.send_photo(chat_id=chat_id, photo=file)
