@@ -61,6 +61,14 @@ python post_photos_to_telegram.py -H <number_of_hours>
 - If no argument is specified, by default photos will be posted one every 4 hours.
 
 
+### Post random or specified image to Telegram channel:
+Run the script from the command line to post random photo to Telegram.
+```
+python .\telegram_bot\tg_bot.py
+```
+- In the script when calling the send_photo_to_chat() function, specify the path to the image as an argument if you need to send a specific photo.
+
+
 ## Project Goals
 
 This code was written for educational purposes as part of an online course for web developers at [dvmn.org](https://dvmn.org/).
