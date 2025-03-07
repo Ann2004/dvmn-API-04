@@ -4,6 +4,9 @@ import random
 import logging
 
 
+logger = logging.getLogger('tg_bot')
+
+
 def send_photo_to_chat(tg_token, chat_id, file_path=None):
     bot = telegram.Bot(token=tg_token)
     
@@ -12,8 +15,7 @@ def send_photo_to_chat(tg_token, chat_id, file_path=None):
         file_paths = [os.path.join(directory, filename) for filename in os.listdir(directory)]
         file_path = random.choice(file_paths)
     
-    logging.basicConfig(level=logging.INFO)
-    logging.info(file_path)
+    logger.info(f'Sending photo: {file_path}')
     
     with open(file_path, 'rb') as file:
         bot.send_photo(chat_id=chat_id, photo=file)

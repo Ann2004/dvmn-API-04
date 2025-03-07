@@ -5,6 +5,7 @@ import os
 import time
 import random
 from dotenv import load_dotenv
+import logging
 
 
 def main():
@@ -26,4 +27,6 @@ def main():
             
 
 if __name__ == '__main__':
+    logger = logging.getLogger('tg_bot')
+    logging.basicConfig(level=logging.INFO)
     main()
