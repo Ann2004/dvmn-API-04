@@ -1,16 +1,12 @@
 import telegram
 import logging
-from get_downloaded_files import get_downloaded_files
 
 
 logger = logging.getLogger('tg_bot')
 
 
-def send_photo_to_chat(tg_token, chat_id, file_path=None):
+def send_photo_to_chat(tg_token, chat_id, file_path):
     bot = telegram.Bot(token=tg_token)
-    
-    if not file_path:
-        file_path = get_downloaded_files('images')
     
     logger.info(f'Sending photo: {file_path}')
     
